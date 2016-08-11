@@ -4,64 +4,56 @@ var gulp = require('gulp'),
     bower = require('gulp-bower');
 
 var config = {
-    sassPath: './resources/sass',
+    sassPath: './src/sass',
     bowerDir: './bower_components',
     vendorDir: './vendor'
-
 }
 
 gulp.task('bower', function() {
-
     return bower()
-
         .pipe(gulp.dest(config.bowerDir))
-
 });
 
 gulp.task('icons', function() {
-
-    return gulp.src(config.bowerDir + '/fontawesome/fonts/**.*')
-
+	// /vendor/fortawesome/font-awesome/fonts
+    return gulp.src(config.vendorDir + '/fortawesome/font-awesome/fonts**.*')
         .pipe(gulp.dest('./dist/fonts'));
+});
 
+gulp.task('js', function() {
+	// /vendor/components/jquery
+    return gulp.src(
+    	[config.vendorDir + '/components/jquery/**.js',
+    	// /vendor/twbs/bootstrap-sass/assets/javascripts
+		config.vendorDir + '/twbs/bootstrap-sass/assets/javascripts/**/*.js']
+    )
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('css', function() {
-
     return gulp.src(config.sassPath + '/style.scss')
-
         .pipe(sass({
             style: 'compressed',
             loadPath: [
                 './src/sass',
-
-                config.bowerDir + '/bootstrap-sass-official/assets/stylesheets',
-
-                config.bowerDir + '/fontawesome/scss',
-
+				// /vendor/twbs/bootstrap-sass/assets/stylesheets
+                config.vendorDir + '/twbs/bootstrap-sass/assets/stylesheets',
+				// /vendor/fortawesome/font-awesome/scss
+                config.vendorDir + '/fortawesome/font-awesome/scss',
             ]
-
         })
-
             .on("error", notify.onError(function (error) {
-
                 return "Error: " + error.message;
-
             })))
-
-
         .pipe(gulp.dest('./dist/css'));
-
 });
 
 // Rerun the task when a file changes
 
 gulp.task('watch', function() {
-
     gulp.watch(config.sassPath + '/**/*.scss', ['css']);
-
 });
 
 
-
-gulp.task('default', ['bower', 'icons', 'css']);
+// 'bower',
+gulp.task('default', [ 'icons', 'css', 'js']);
