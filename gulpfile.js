@@ -26,7 +26,10 @@ gulp.task('js', function() {
     return gulp.src(
     	[config.vendorDir + '/components/jquery/**.js',
     	// /vendor/twbs/bootstrap-sass/assets/javascripts
-		config.vendorDir + '/twbs/bootstrap-sass/assets/javascripts/**/*.js']
+		config.vendorDir + '/twbs/bootstrap-sass/assets/javascripts/**/*.js',
+		// /vendor/matthieua/WOW/dist
+		config.vendorDir + '/matthieua/WOW/dist/**/*.js'
+		]
     )
         .pipe(gulp.dest('./dist/js'));
 });
@@ -60,7 +63,7 @@ gulp.task('sass', function() {
 // Rerun the task when a file changes
 
 gulp.task('watch', function() {
-    gulp.watch(config.sassPath + '/**/*.scss', ['css']);
+    gulp.watch(config.sassPath + '/**/*.scss', ['sass']);
 });
 
 

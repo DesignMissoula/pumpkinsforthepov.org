@@ -17,6 +17,7 @@ body {
   text-align: center;
 }
 
+/*
 .carousel-inner{
   width: 120%;
   margin-left: -10%;
@@ -28,7 +29,7 @@ body {
     margin: 0;
   }
 }
-
+*/
 
 .carousel {
 	img {
@@ -58,4 +59,21 @@ body {
 		padding: 5px 0px;
 		text-align: center;
 	}
+
+ &.right {
+	    -ms-transform: rotate(7deg); /* IE 9 */
+	    -webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+	    transform: rotate(7deg);
+	}
+
+ &.left {
+	    -ms-transform: rotate(-7deg); /* IE 9 */
+	    -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+	    transform: rotate(-7deg);
+	}
+
+
+
 }
+
+
