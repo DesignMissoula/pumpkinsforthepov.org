@@ -4,6 +4,7 @@
 
 // Import bootstrap and fontawesome
 // @import "bootstrap";
+@import 'bootstrap-variables';
 @import 'bootstrap-custom';
 @import "font-awesome";
 
@@ -16,7 +17,45 @@ body {
   text-align: center;
 }
 
-body {
-  min-height: 2000px;
-  padding-top: 70px;
+.carousel-inner{
+  width: 120%;
+  margin-left: -10%;
+}
+
+@media (min-width: 1278px){
+  .carousel-inner{
+    width: 100%;
+    margin: 0;
+  }
+}
+
+
+.carousel {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+
+.spacer {
+    margin-top: 40px; /* define margin as you see fit */
+    margin-bottom: 40px; /* define margin as you see fit */
+}
+
+
+.background-green {
+	background: #9DF716;
+}
+
+
+.photo {
+	background: #efefef;
+	box-shadow: 4px 4px 6px #333;
+	padding: 15px 15px;
+	
+	.caption {
+		padding: 5px 0px;
+		text-align: center;
+	}
 }

@@ -32,6 +32,14 @@ gulp.task('js', function() {
 });
 
 gulp.task('css', function() {
+	// /vendor/components/jquery
+    return gulp.src(
+    	[config.vendorDir + '/drmonty/animate.css/css/**.*']
+    )
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('sass', function() {
     return gulp.src(config.sassPath + '/style.scss')
         .pipe(sass({
             style: 'compressed',
@@ -57,4 +65,4 @@ gulp.task('watch', function() {
 
 
 // 'bower',
-gulp.task('default', [ 'icons', 'css', 'js']);
+gulp.task('default', [ 'icons', 'css', 'sass', 'js']);
