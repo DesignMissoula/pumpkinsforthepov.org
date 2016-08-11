@@ -16,7 +16,8 @@ gulp.task('bower', function() {
 
 gulp.task('icons', function() {
 	// /vendor/fortawesome/font-awesome/fonts
-    return gulp.src(config.vendorDir + '/fortawesome/font-awesome/fonts**.*')
+    return gulp.src([config.vendorDir + '/fortawesome/font-awesome/fonts**.*',
+    config.vendorDir + '/twbs/bootstrap-sass/assets/fonts/**/*.*' ])
         .pipe(gulp.dest('./dist/fonts'));
 });
 
