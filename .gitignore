@@ -4,3 +4,4 @@ bower_components
 vendor
 dist/images
 components
+inc/config.inc.php
